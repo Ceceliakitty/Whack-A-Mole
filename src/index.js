@@ -264,7 +264,21 @@ function stopGame() {
  * is clicked.
  *
  */
+function playAudio(audioObject) {
+  audioObject.play();
+}
+
+function loopAudio(audioObject) {
+  audioObject.loop = true;
+  playAudio(audioObject);
+}
+
+function stopAudio(audioObject) {
+  audioObject.pause();
+}
+
 function startGame() {
+  playAudio(song);
   setEventListeners();
   setDuration(10);
   clearScore();
@@ -274,6 +288,12 @@ function startGame() {
 }
 
 startButton.addEventListener("click", startGame);
+const audioHit = new Audio(
+  "https://github.com/gabrielsanchez/erddiagram/blob/main/hit.mp3?raw=true"
+);
+const song = new Audio(
+  "https://github.com/gabrielsanchez/erddiagram/blob/main/molesong.mp3?raw=true"
+);
 
 // // Get a reference to the mallet image
 //     const malletCursor = new Image();
@@ -290,7 +310,6 @@ startButton.addEventListener("click", startGame);
 //       malletCursor.style.top = (event.clientY - malletCursor.height / 2) + 'px';
 //       document.body.appendChild(malletCursor);
 //     });
-
 
 // Please do not modify the code below.
 // Used for testing purposes.
